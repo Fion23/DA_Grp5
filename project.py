@@ -1,7 +1,7 @@
 #lab 10b 
 import requests
 # Importing request library
-url = 'http://www.wikipedia.org’
+url = 'http://www.wikipedia.org'
 # Set the target webpage
 r = requests.get(url)
 # get request
@@ -25,7 +25,7 @@ print("**********")
 
 headers = {
 # This will modify the headers user-agent
-	'User-Agent' : ‘Mobile’
+	'User-Agent' : 'Mobile'
 }
 url2 = 'http://httpbin.org/headers'
 # Test it on an alternate site
