@@ -25,7 +25,7 @@ print("**********")
 
 headers = {
 # This will modify the headers user-agent
-	'User-Agent' : ‘IPhone 8’
+	'User-Agent' : ‘Mobile’
 }
 url2 = 'http://httpbin.org/headers'
 # Test it on an alternate site
