@@ -5,7 +5,7 @@ url = 'http://www.wikipedia.org'
 # Set the target webpage
 r = requests.get(url)
 # get request
-print(r.text)
+print(r)
 # This will get the full page of get request
 
 print("Status code:")
