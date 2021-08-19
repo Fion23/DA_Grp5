@@ -1,4 +1,4 @@
-#lab 10b hi i can edit - vivian
+#lab 10b 
 import requests
 # Importing request library
 url = 'http://www.wikipedia.org’
@@ -25,11 +25,33 @@ print("**********")
 
 headers = {
 # This will modify the headers user-agent
-	'User-Agent' : ‘Mobile’
+	'User-Agent' : ‘Mobile Phone’
 }
 url2 = 'http://httpbin.org/headers'
 # Test it on an alternate site
 rh = requests.get(url2, headers=headers)
 print(rh.text)
 
-print("Hello test edit")
+#10c
+import scrapy
+
+class TestSpider(scrapy.Spider):
+    name = "test"
+    start_urls = ["https://www.bricksworld.com/"]
+    def parse(self, response):
+        css_selector = 'png'
+        for x in response.css(css_selector):
+            newsel = '@src'
+            yield {
+             'Image Link': x.xpath(newsel).extract_first()
+            }
+
+# To recurse to the next page
+        Page_selector = '.next a ::attr(href)'
+        next_page = response.css(Page_selector).extract_first()
+        if next_page:
+            yield scrapy.Request(
+                response.urjolin(next_page),
+                callback =self.parse
+            )
+
