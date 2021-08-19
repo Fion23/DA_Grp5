@@ -39,7 +39,7 @@ class TestSpider(scrapy.Spider):
     name = "test"
     start_urls = ["https://www.bricksworld.com/"]
     def parse(self, response):
-        css_selector = 'jpg'
+        css_selector = 'img'
         for x in response.css(css_selector):
             newsel = '@src'
             yield {
