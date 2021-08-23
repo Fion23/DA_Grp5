@@ -1,19 +1,19 @@
-#lab 10b 
+#lab 10b
 import requests
 # Importing request library
-url = 'http://www.wikipedia.org'
+url_link = 'https://www.apple.com/sg/'
 # Set the target webpage
-r = requests.get(url)
+R = requests.get(url_link)
 # get request
-print(r)
+print(R)
 # This will get the full page of get request
 
 print("Status code:")
 # This will show status code:
-print("\t *", r.status_code)
+print("\t *", R.status_code)
 # This will get the status code, 200 which also means OK
 
-h = requests.head(url)
+h = requests.head(url_link)
 # This will just get just the headers
 print("Header:")
 # This will show Header:
@@ -27,10 +27,11 @@ headers = {
 # This will modify the headers user-agent
 	'User-Agent' : 'Mobile'
 }
-url2 = 'http://httpbin.org/headers'
+url_link2 = 'http://www.google.com'
 # Test it on an alternate site
-rh = requests.get(url2, headers=headers)
-print(rh.text)
+RH = requests.get(url_link2, headers=headers)
+print(RH.text)
+
 
 #10c
 import scrapy
