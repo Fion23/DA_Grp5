@@ -38,7 +38,7 @@ import scrapy
 
 class TestSpider(scrapy.Spider):
     name = "test"
-    start_urls = ["https://www.bricksworld.com/"]
+    start_urls = ["https://brickset.com/sets/year-2002/"]
     def parse(self, response):
         css_selector = 'img'
         for x in response.css(css_selector):
