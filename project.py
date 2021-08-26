@@ -44,7 +44,7 @@ class TestSpider(scrapy.Spider):
             }
 
     def start_requests(self):
-        headers = {'User-Agent': 'Mozilla/5.0 (Linux; Android 4.0.4; Galaxy Nexus Build/IMM76B) Gecko/20100101 Firefox/48.0'}
+        headers = {'User-Agent': 'Mobile'}
 
         for url in self.start_urls:
             yield Request(url, headers=headers)
