@@ -27,7 +27,6 @@ print(reqh.text)
 
 
 
-#10c
 import scrapy
 from scrapy.http.request import Request
 
@@ -60,7 +59,6 @@ class Grp5Spider(scrapy.Spider):
                 callback =self.parse
             )
 	
-# Lab 8
 import unittest
 
 class project(unittest.TestCase):
