@@ -18,7 +18,7 @@ for x in h.headers:
 print("**********")
 # This will modify the headers user-agent
 headers = {
-    'User-Agent' : 'Mobile'         
+    'User-Agent' : 'Mobile'
 }
 # Test it on an another site
 link2 = 'http://httpbin.org/headers'
@@ -26,22 +26,22 @@ reqh = requests.get(link2, headers=headers)
 print(reqh.text)
 
 
-
+# Scrapy is a web scrapping tool written in python to do large scale web scraping
 import scrapy
 from scrapy.http.request import Request
 
-
+# Create a spider
 class Grp5Spider(scrapy.Spider):
-    name = "grp5"
-    start_urls = ["https://brickset.com/sets/year-2002/"]
-    def parse(self, response):
-        css_selector = 'img'
+    name = "grp5" #name of spider
+    start_urls = ["https://brickset.com/sets/year-2002/"] #target url(s)
+    def parse(self, response):  
+        css_selector = 'img' # The type of csss selector 
         for x in response.css(css_selector):
             newsel = '@src'
             yield {
-             'Image Link': x.xpath(newsel).extract_first()
+             'Image Link': x.xpath(newsel).extract_first() #yield is to capture&output 
             }
-
+# Header spoofing
     def start_requests(self):
         headers = {'User-Agent': 'Mobile'}
 
@@ -58,8 +58,7 @@ class Grp5Spider(scrapy.Spider):
                 response.urjolin(next_page),
                 callback =self.parse
             )
-
-#unit testing	
+	
 import unittest
 
 class project(unittest.TestCase):
