@@ -32,8 +32,8 @@ import scrapy
 from scrapy.http.request import Request
 
 
-class TestSpider(scrapy.Spider):
-    name = "test"
+class Grp5Spider(scrapy.Spider):
+    name = "grp5"
     start_urls = ["https://brickset.com/sets/year-2002/"]
     def parse(self, response):
         css_selector = 'img'
