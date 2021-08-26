@@ -55,4 +55,13 @@ class TestSpider(scrapy.Spider):
                 response.urjolin(next_page),
                 callback =self.parse
             )
+	
+import unittest
 
+class project(unittest.TestCase):
+
+    def test_EngineType(self):
+        print("Testing")
+
+if __name__ == '__main__':
+    unittest.main()
