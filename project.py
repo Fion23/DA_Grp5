@@ -29,6 +29,8 @@ print(reqh.text)
 
 #10c
 import scrapy
+from scrapy.http.request import Request
+
 
 class TestSpider(scrapy.Spider):
     name = "test"
@@ -41,6 +43,14 @@ class TestSpider(scrapy.Spider):
              'Image Link': x.xpath(newsel).extract_first()
             }
 
+    def start_requests(self):
+        headers = {'User-Agent': 'Mozilla/5.0 (Linux; Android 4.0.4; Galaxy Nexus Build/IMM76B) Gecko/20100101 Firefox/48.0'}
+
+        for url in self.start_urls:
+            yield Request(url, headers=headers)
+            
+
+
 # To recurse to the next page
         Page_selector = '.next a ::attr(href)'
         next_page = response.css(Page_selector).extract_first()
@@ -50,6 +60,7 @@ class TestSpider(scrapy.Spider):
                 callback =self.parse
             )
 	
+# Lab 8
 import unittest
 
 class project(unittest.TestCase):
