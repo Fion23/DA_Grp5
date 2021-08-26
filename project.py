@@ -1,42 +1,34 @@
-#lab 10b
+# Use the Request library
 import requests
-# Importing request library
-url_link = 'https://www.apple.com/sg/'
 # Set the target webpage
-R = requests.get(url_link)
-# get request
-print(R)
-# This will get the full page of get request
-
+link1 = 'https://brickset.com/sets/year-2002'
+req = requests.get(link1)
+# This will get the full page
+print(req.text)
+# This will get the status code
 print("Status code:")
-# This will show status code:
-print("\t *", R.status_code)
-# This will get the status code, 200 which also means OK
-
-h = requests.head(url_link)
+print("\t *", req.status_code)
 # This will just get just the headers
+h = requests.head(link1)
 print("Header:")
-# This will show Header:
 print("**********")
-for x in h.headers:
 # To print line by line
-	print("\t ", x, ":", h.headers[x])
+for x in h.headers:
+    print("\t ", x, ":", h.headers[x])
 print("**********")
-
-headers = {
 # This will modify the headers user-agent
-	'User-Agent' : 'Mobile'
+headers = {
+    'User-Agent' : 'Mobile'
 }
-url_link2 = 'http://www.google.com'
-# Test it on an alternate site
-RH = requests.get(url_link2, headers=headers)
-print(RH.text)
+# Test it on an external site
+link2 = 'http://httpbin.org/headers'
+reqh = requests.get(link2, headers=headers)
+print(reqh.text)
+
 
 
 #10c
 import scrapy
-from scrapy.http.request import Request
-
 
 class TestSpider(scrapy.Spider):
     name = "test"
@@ -48,13 +40,6 @@ class TestSpider(scrapy.Spider):
             yield {
              'Image Link': x.xpath(newsel).extract_first()
             }
-
-    def start_requests(self):
-        headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:48.0) Gecko/20100101 Firefox/48.0'}
-
-        for url in self.start_urls:
-            yield Request(url, headers=headers)
-
 
 # To recurse to the next page
         Page_selector = '.next a ::attr(href)'
