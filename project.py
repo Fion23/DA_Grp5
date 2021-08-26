@@ -20,7 +20,7 @@ print("**********")
 headers = {
     'User-Agent' : 'Mobile'
 }
-# Test it on an external site
+# Test it on an another site
 link2 = 'http://httpbin.org/headers'
 reqh = requests.get(link2, headers=headers)
 print(reqh.text)
