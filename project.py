@@ -18,7 +18,7 @@ for x in h.headers:
 print("**********")
 # This will modify the headers user-agent
 headers = {
-    'User-Agent' : 'Mobile'
+    'User-Agent' : 'Mobile'         
 }
 # Test it on an another site
 link2 = 'http://httpbin.org/headers'
